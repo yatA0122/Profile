@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+body{
+    width: 100%;
+    background-color: beige;
+}
+h1,
+.line-selection{
+    text-align: center;
+    margin-bottom: 20px;
+}
+p{
+    margin: 10px;
+}
+button{
+    margin: 20px;
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+}
+.btn-play,
+.btn-stop{
+    font-size: 15pt;
+    margin: 10px;
+}
+input[type="radio"]{
+    transform: scale(2);
+    text-align: center;
+    margin: 10px 30px;
+}
+.radio-label {
+    font-size: 20pt;
+}
+
+.play_stop_btn,
+.radio_btn,
+.bar{
+    text-align: center;
+}
+
+input[type="range"]{
+    text-align: center;
+    margin: 20px;
+}
+
+img{
+    margin: 10px;
+    width: 50%;
+    height: auto;
+}
+
+input[type="number"]{
+    font-size: 20pt;
+    text-align: center;
+    margin-right: 5px;
+    width: 10%;
+}
+
+.interval-form{
+    margin: 0;
+    display: block;
+}
+
+label[for="interval-number"]{
+    font-size: 20pt;
+}
+
+.photoalert{
+    text-align: center;
+}
+
+.interval-time{
+    font-size: 20pt;
+    visibility:hidden;
+    margin: 0;
+}
+
+.progress-bar{
+    visibility:hidden;
+}
+
+.voiceSelect,
+.setup{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 49%;
+}
+
+option{
+    text-align: center;
+    font-size: 12pt;
+}
+
+select{
+    width: 40%;
+    font-size: 15pt;
+}
+
+.repeat{
+    text-align: center;
+    display: block;
+}
+
+/* .delay {
+    visibility: hidden;
+} */

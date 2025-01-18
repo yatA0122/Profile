@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>構内放送（輸送障害）</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>構内放送システム（異常時用）</h1>
+      <p>
+        以下のことを確認してからご使用ください。<br />
+        　1.BluetoothでBTU-100と接続されているか。<br />
+        　2.パソコンの音声出力が「BTU-100
+        Stereo」になっているか、また音量がMaxになっているかを確認してください。
+      </p>
+      <p>
+        ※
+        繰り返し間隔の変更は再生中（タイムバーが動いているとき）に行ってください。<br />
+        ※
+        「見合わせ」・「遅れ」の選択リストは必ずどちらかが「--選択--」になるようにしてください。<br />
+        ※
+        線区・事由・振替の有無を変更する場合は停止ボタンを押してから変更してください。
+      </p>
+      <div class="line-selection">
+        <h2>線区</h2>
+        <label class="radio-label">
+          <input
+            type="radio"
+            name="line-selection"
+            id="yamanote"
+            checked
+          />山手線
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="line-selection" id="keihin" />京浜東北線
+        </label>
+        <!-- <label class="radio-label">
+                    <input type="radio" name="line-selection" id="yamanote_keihin">山手線＆京浜東北線
+                </label> -->
+      </div>
+      <div class="voiceSelect">
+        <div class="suspend">
+          <h2>見合わせ</h2>
+          <select name="suspend_pull-down" id="suspend_pull-down">
+            <option value="">--選択--</option>
+            <option value="accident_suspend">人身事故</option>
+            <option value="human_entry_suspend">人立入</option>
+            <option value="vehicle_trouble_suspend">車内トラブル</option>
+            <option value="safety_check_suspend">安全確認</option>
+            <option value="noise_check_suspend">異音の確認</option>
+            <option value="human_contact_suspend">車両に人接触</option>
+            <option value="customer_fall_suspend">お客さま転落</option>
+            <option value="vehicle_inspection_suspend">車両点検</option>
+            <option value="signal_device_check_suspend">信号装置点検</option>
+            <option value="signal_device_failure_suspend">信号装置故障</option>
+            <option value="overhead_wire_check_suspend">架線点検</option>
+            <option value="overhead_wire_obstruction_suspend">架線支障</option>
+            <option value="point_check_suspend">ポイント点検</option>
+            <option value="point_failure_suspend">ポイント故障</option>
+            <option value="track_check_suspend">線路点検</option>
+            <option value="platform_door_check_suspend">ホームドア点検</option>
+            <option value="construction_delay_suspend">工事の遅れ</option>
+            <option value="air_section_suspend">エアセクション</option>
+            <option value="typhoon_suspend">台風</option>
+            <option value="strong_wind_suspend">強風</option>
+            <option value="heavy_rain_suspend">大雨</option>
+            <option value="snow_suspend">雪</option>
+            <option value="power_outage_suspend">停電</option>
+            <option value="trackside_fire_suspend">沿線火災</option>
+            <option value="no_recovery_estimate_suspend">
+              運転再開見込みなし
+            </option>
+            <option value="no_recovery_time_suspend">
+              運転再開の目途立たず
+            </option>
+            <option value="operation_resumed_suspend">運転再開</option>
+          </select>
+        </div>
+        <div class="delay">
+          <h2>遅れ</h2>
+          <select name="delay_pull-down" id="delay_pull-down">
+            <option value="">--選択--</option>
+            <option value="accident_delay">人身事故</option>
+            <option value="human_entry_delay">人立入</option>
+            <option value="vehicle_trouble_delay">車内トラブル</option>
+            <option value="safety_check_delay">安全確認</option>
+            <option value="noise_check_delay">異音の確認</option>
+            <option value="human_contact_delay">車両に人接触</option>
+            <option value="customer_fall_delay">お客さま転落</option>
+            <option value="vehicle_inspection_delay">車両点検</option>
+            <option value="signal_device_check_delay">信号装置点検</option>
+            <option value="signal_device_failure_delay">信号装置故障</option>
+            <option value="overhead_wire_check_delay">架線点検</option>
+            <option value="overhead_wire_obstruction_delay">架線支障</option>
+            <option value="point_check_delay">ポイント点検</option>
+            <option value="point_failure_delay">ポイント故障</option>
+            <option value="track_check_delay">線路点検</option>
+            <option value="platform_door_check_delay">ホームドア点検</option>
+            <option value="construction_delay_delay">工事の遅れ</option>
+            <option value="air_section_delay">エアセクション</option>
+            <!-- <option value="typhoon_delay">台風</option>
+                        <option value="strong_wind_delay">強風</option>
+                        <option value="heavy_rain_delay">大雨</option>
+                        <option value="snow_delay">雪</option>
+                        <option value="power_outage_delay">停電</option>
+                        <option value="trackside_fire_delay">沿線火災</option>
+                        <option value="no_recovery_estimate_delay">運転再開見込みなし</option>
+                        <option value="no_recovery_time_delay">運転再開の目途立たず</option>
+                        <option value="operation_resumed_delay">運転再開</option> -->
+          </select>
+        </div>
+        <div class="transfer">
+          <h2>振替の有無</h2>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="transfer"
+              id="transfer_true"
+              checked
+            />あり
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="transfer" id="transfer_false" />なし
+          </label>
+        </div>
+      </div>
+      <div class="setup">
+        <div class="play_stop_btn">
+          <div class="interval-form">
+            <label for="interval-number">繰り返し間隔：</label>
+            <input
+              type="number"
+              name="interval-number"
+              id="interval-number"
+              value="15"
+            />
+            <label for="interval-number">秒</label>
+          </div>
+          <button type="button" class="btn-play" value="再生">再生</button>
+          <button type="button" class="btn-stop" value="停止">停止</button>
+        </div>
+        <div class="bar">
+          <input
+            type="range"
+            id="progress-bar"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            style="width: 50%"
+          />
+          <p class="interval-time" id="interval-time">
+            再生開始まで<span id="intervalCount"></span>秒
+          </p>
+        </div>
+        <div class="photoalert">
+          <img src="./picture1.png" alt="出力先と音量の写真" />
+        </div>
+      </div>
+      <div class="repeat">
+        <p class="repeat-count">
+          このタブでの放送回数: <span id="loopCount">0</span>
+        </p>
+      </div>
+    </main>
+    <footer></footer>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
