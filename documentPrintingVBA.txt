@@ -1,0 +1,100 @@
+Public month As Integer
+Public year As String
+
+Sub Main_Floor_Printing()
+    year = Range("A1").Value
+    month = Range("D1").Value
+    lastDay
+    
+    For i = lastDay To 1 Step -1
+        Range("G1").Select
+        ActiveCell.FormulaR1C1 = i
+        ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+            IgnorePrintAreas:=False
+            
+    Next
+    
+    ShowCompletionMessage
+
+End Sub
+
+Sub Underground_Printing()
+    year = Range("C1").Value
+    month = Range("E1").Value
+    flag = 0
+    amountDays = 30
+    
+    If lastDay = 29 Or lastDay = 28 Then
+        amountDays = 25
+    End If
+    
+    For i = amountDays To 3 Step -3
+        Range("H1").Select
+        Select Case lastDay
+            Case 30
+                Range("H1").Select
+                ActiveCell.FormulaR1C1 = i - 2
+                ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+                    IgnorePrintAreas:=False
+                    
+            Case 31
+                If flag = 0 Then
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = 31
+                    Range("A1:J8").Select
+                    Selection.PrintOut Copies:=1, Collate:=True
+                    flag = 1
+                End If
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = i - 2
+                    ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+                        IgnorePrintAreas:=False
+                        
+            Case 29
+                If flag = 0 Then
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = 29
+                    Range("A1:J17").Select
+                    Selection.PrintOut Copies:=1, Collate:=True
+                    flag = 1
+                End If
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = i - 3
+                    ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+                        IgnorePrintAreas:=False
+                        
+            Case 28
+                If flag = 0 Then
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = 28
+                    Range("A1:J8").Select
+                    Selection.PrintOut Copies:=1, Collate:=True
+                    flag = 1
+                End If
+                    Range("H1").Select
+                    ActiveCell.FormulaR1C1 = i - 3
+                    ActiveWindow.SelectedSheets.PrintOut Copies:=1, Collate:=True, _
+                        IgnorePrintAreas:=False
+                        
+        End Select
+    Next
+    
+    ShowCompletionMessage
+
+End Sub
+
+Function lastDay()
+    lastDay = Day(DateSerial(year, month + 1, 0))
+End Function
+
+
+Function ShowCompletionMessage()
+    Dim WSH As Object
+    Set WSH = CreateObject("Wscript.shell")
+    WSH.Popup "複合機に送信中です。" & vbCrLf & "しばらくお待ちください。" & vbCrLf & vbCrLf & "※ この表示は自動で消えます。", 10, "送信中", vbInformation
+    Set WSH = Nothing
+
+    MsgBox "複合機に送信が完了しました。" & vbCrLf & vbCrLf & "「プリント」→「全選択」を押してから" & vbCrLf & "「プリント開始」を押してください。", Buttons:=vbInformation
+End Function
+
+
