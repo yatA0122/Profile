@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>構内放送（任意ファイル）</title>
+        <link rel="stylesheet" href="./style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <main>
+            <h1>構内放送システム</h1>
+            <div class="photoalert">
+                <p>
+                    以下のことを確認してからご使用ください。<br>
+                    1.BluetoothでBTU-100と接続されているか。<br>
+                    2.パソコンの音声出力が「BTU-100 Stereo」になっているか、また音量がMaxになっているかを確認してください。
+                </p>
+                <img src="./picture1.png" alt="出力先と音量の写真">
+            </div>
+            <p class="attention_kome">
+                ※「×」やタブで画面消すと再生が終了してしまうだけではなく、追加したファイルもリセットされてしまうのでお気を付けください。（再生中は最小化）<br>
+                ※再生順序やファイルを削除するときは、画面の更新をしてお手数ですがもう一度最初からファイルを追加しなおしてください。<br>
+                ※繰り返し間隔の変更は再生中（タイムバーが動いているとき）に行ってください。　<span>※追加するファイルはMP3でお願いいたします。（5ファイルまで）</span>
+            </p>
+            
+            <div class="contents">
+                <div class="left-column">
+                    <div id="dropzone" class="dropzone">
+                        ドラッグ&ドロップで<br><br>音声ファイルを入れてください
+                    </div>
+                    <div class="list-contents">
+                        <h2>プレイリスト</h2>
+                        <ul class="playlist">
+                        </ul>
+                    </div>
+                </div>
+                <div class="play_stop_btn">
+                    <div class="interval-form">
+                        <label for="interval-number">繰り返し間隔：</label>
+                        <input type="number" name="interval-number" id="interval-number" value="15" min="1">
+                        <label for="interval-number">秒</label>
+                    </div>
+                    <button type="button" class="btn-play" value="再生">再生</button>
+                    <button type="button" class="btn-stop" value="停止">停止</button>
+                    <div class="bar">
+                        <input type="range" id="progress-bar" value="0" min="0" max="100" step="1" style="width: 80%;">
+                    </div>
+                    <p class="interval-time" id="interval-time">再生開始まで<span id="intervalCount"></span>秒</p>
+                    <p class="repeat-count">ループ回数: <span id="loopCount">0</span></p>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
