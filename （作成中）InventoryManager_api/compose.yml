@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: ./src/backend
+    container_name: rails-api
+    command: bundle exec rails server
+    env_file:
+      - .env
+    volumes:
+      - ./src/backend:/app
+    ports:
+      - "${API_SSL_PORT}:${API_SSL_PORT}"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    container_name: mysql-db
+    env_file:
+      - .env
+    ports:
+      - "${APP_DATABASE_PORT}:${APP_DATABASE_PORT}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+volumes:
+  mysql_data:

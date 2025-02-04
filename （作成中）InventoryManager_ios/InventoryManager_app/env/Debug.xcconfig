@@ -1,0 +1,8 @@
+//
+//  Debug.xcconfig
+//  InventoryManager_app
+//
+//  Created by 古田 舜弥 on 2024/12/14.
+//
+
+BASE_URL = "https://192.0.0.2:3001"

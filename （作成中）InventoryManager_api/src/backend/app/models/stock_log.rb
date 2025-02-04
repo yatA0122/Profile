@@ -1,0 +1,2 @@
+class StockLog < ApplicationRecord
+end

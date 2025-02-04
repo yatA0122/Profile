@@ -1,0 +1,6 @@
+localhost.key
+localhost.crt
+localhost.csr
+localhost.cert
+config/ssl/
+.env*
